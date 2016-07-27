@@ -1,4 +1,4 @@
-@extends('template.t_index')
+@extends('layouts.app')
 @section('content')
 
 @if(Session::has('message'))

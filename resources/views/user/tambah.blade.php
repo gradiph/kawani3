@@ -1,40 +1,62 @@
-@extends('template.t_index')
+@extends('layouts.app')
+@section('title') Tambah User | @stop
 @section('content')
 
-<p></p>
-<div class="panel panel-default">
-	<div class="panel-heading">
-		Tambah Data
-	</div>
-	<div class="panel-body">
-		{{ Form::open(['url' => 'users/processAdd']) }}
-		Username : 
-		@if($errors->has())
-			<br />
-			<span class="label label-danger">{{ $errors->first('username') }}</span>
-			<p></p>
-		@endif
-		{{ Form::text('username', '', ['placeholder' => 'Username','class' => 'form-control']) }}
-		Password : 
-		@if($errors->has())
-			<br />
-			<span class="label label-danger">{{ $errors->first('password') }}</span>
-			<p></p>
-		@endif
-		{{ Form::password('password', ['placeholder' => 'Password','class' => 'form-control']) }}
-		<br />
-		Level :
-		<br />
-		{{ Form::radio('level', 'SPG', true) }} SPG <br />
-		{{ Form::radio('level', 'Staf') }} Staf <br />
-		{{ Form::radio('level', 'HRD') }} HRD <br />
-		{{ Form::radio('level', 'Keuangan') }} Keuangan <br />
-		{{ Form::radio('level', 'Direktur') }} Direktur <br />
-		{{ Form::radio('level', 'Admin') }} Admin <br />
-		<p></p>
-		{{ Form::submit('Tambah Data', ['class' => 'btn btn-danger']) }} <a href="{{ URL('users') }}" class="btn btn-danger">Kembali</a>
-		{{ Form::close() }}
-	</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-lg-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Tambah Data
+                </div>
+                <div class="panel-body">
+                    {{ Form::open(['url' => 'users/processAdd']) }}
+                    {{ Form::label('username','Username (untuk login)') }}
+                    @if($errors->has())
+                        <br />
+                        <span class="label label-danger">{{ $errors->first('username') }}</span>
+                        <p></p>
+                    @endif
+                    {{ Form::text('username', '', ['autofocus' => 'autofocus', 'placeholder' => 'Username','class' => 'form-control']) }}
+                    <br />
+                    {{ Form::label('nama','Nama') }}
+                    @if($errors->has())
+                        <br />
+                        <span class="label label-danger">{{ $errors->first('nama') }}</span>
+                        <p></p>
+                    @endif
+                    {{ Form::text('nama', '', ['placeholder' => 'Nama','class' => 'form-control']) }}
+                    <br />
+                    {{ Form::label('password','Password') }}
+                    @if($errors->has())
+                        <br />
+                        <span class="label label-danger">{{ $errors->first('password') }}</span>
+                        <p></p>
+                    @endif
+                    {{ Form::password('password', ['placeholder' => 'Password','class' => 'form-control']) }}
+                    <br />
+                    {{ Form::label('level','Level') }}
+                    <?php
+					$level = [
+						'Kasir' => 'Kasir',
+						'Gudang' => 'Gudang',
+						'Staf' => 'Staf',
+						'HRD' => 'HRD',
+						'Keuangan' => 'Keuangan',
+						'Direktur' => 'Direktur',
+						'Admin' => 'Admin',
+					];
+					?>
+                    {{ Form::select('level', $level, 'Kasir', ['class' => 'form-control']) }}
+                    <br />
+                    <div class="col-lg-offset-2">
+                    	{{ Form::submit('Tambah Data', ['class' => 'btn btn-danger']) }} 
+                        <a href="{{ URL('users') }}" class="btn btn-danger">Kembali</a>
+                    </div>
+                    {{ Form::close() }}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
 @stop

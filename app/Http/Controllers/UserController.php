@@ -9,7 +9,7 @@ use Input;
 use Auth;
 use Kawani\Http\Requests\ValidasiUserTambah;
 use Kawani\Http\Requests\ValidasiUserEdit;
-use User;
+use Kawani\User;
 
 class UserController extends Controller
 {
@@ -42,7 +42,7 @@ class UserController extends Controller
 		$data->username = Input::get('username');
 		$data->nama = Input::get('nama');
 		$data->level = Input::get('level');
-		
+		$data->save();
 		return Redirect::to('user')->with('message','berhasil mengedit data');
 	}
 }
