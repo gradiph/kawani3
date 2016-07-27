@@ -150,6 +150,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 		'Maatwebsite\Excel\ExcelServiceProvider',
+		Collective\Html\HtmlServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -187,8 +188,11 @@ return [
         'Event' => Illuminate\Support\Facades\Event::class,
 		'Excel' => 'Maatwebsite\Excel\Facades\Excel',
         'File' => Illuminate\Support\Facades\File::class,
+		'Form' => Collective\Html\FormFacade::class,
         'Gate' => Illuminate\Support\Facades\Gate::class,
         'Hash' => Illuminate\Support\Facades\Hash::class,
+		'Html' => Collective\Html\HtmlFacade::class,
+		'Input' => Illuminate\Support\Facades\Input::class,
         'Lang' => Illuminate\Support\Facades\Lang::class,
         'Log' => Illuminate\Support\Facades\Log::class,
         'Mail' => Illuminate\Support\Facades\Mail::class,
