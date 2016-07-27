@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace Kawani\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

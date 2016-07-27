@@ -155,10 +155,10 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Kawani\Providers\AppServiceProvider::class,
+        Kawani\Providers\AuthServiceProvider::class,
+        Kawani\Providers\EventServiceProvider::class,
+        Kawani\Providers\RouteServiceProvider::class,
 
     ],
 

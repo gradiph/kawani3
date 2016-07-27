@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace Kawani\Events;
 
 abstract class Event
 {
