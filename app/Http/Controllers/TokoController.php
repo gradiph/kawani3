@@ -16,7 +16,8 @@ class TokoController extends Controller
     public function lihat() 
 	{
 		$data = Toko::all();
-		return view('toko.lihat')->with('tokos',$data);
+		$total = Toko::count();
+		return view('toko.lihat')->with('tokos',$data)->with('total',$total);
 	}
 	public function tambah() 
 	{
