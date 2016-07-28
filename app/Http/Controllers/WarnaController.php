@@ -15,8 +15,9 @@ class WarnaController extends Controller
 {
     public function lihat() 
 	{
-		$data = Warna::all();
-		return view('warna.lihat')->with('warnas',$data);
+		$data = Warna::paginate(25);
+		$total = Warna::count();
+		return view('warna.lihat')->with('warnas',$data)->with('total',$total);
 	}
 	public function tambah() 
 	{
