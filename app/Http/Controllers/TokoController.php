@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Kawani\Http\Requests;
 use Kawani\Http\Requests\ValidasiTokoTambah;
 use Kawani\Http\Requests\ValidasiTokoUbah;
-use DB;
 use Input;
 use Redirect;
 use Auth;

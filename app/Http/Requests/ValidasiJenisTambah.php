@@ -4,7 +4,7 @@ namespace Kawani\Http\Requests;
 
 use Kawani\Http\Requests\Request;
 
-class ValidasiSupplierTambah extends Request
+class ValidasiJenisTambah extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,7 @@ class ValidasiSupplierTambah extends Request
     {
         return [
             'nama'=>'required',
-			'id'=>'required|unique:suppliers,id|digits:3',
+			'id'=>'required|unique:jenis,id|digits:1',
         ];
     }
 	public function messages()

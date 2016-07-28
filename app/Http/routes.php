@@ -77,6 +77,16 @@ Route::group(['prefix' => 'supplier'], function() {
 	Route::post('{id}/edit/proses','SupplierController@prosesUbah');
 });
 
+Route::group(['prefix' => 'jenis'], function() {
+	Route::get('/','JenisController@lihat');
+	Route::get('add','JenisController@tambah');
+	Route::get('{id}/delete','JenisController@hapus');
+	Route::get('{id}/edit','JenisController@ubah');
+	Route::post('add/proses','JenisController@prosesTambah');
+	Route::post('{id}/delete/proses','JenisController@prosesHapus');
+	Route::post('{id}/edit/proses','JenisController@prosesUbah');
+});
+
 Route::group(['prefix' => 'user'], function() {
 	Route::get('/','UserController@lihat');
 	Route::get('add','UserController@tambah');
