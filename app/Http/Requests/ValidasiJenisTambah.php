@@ -34,7 +34,7 @@ class ValidasiJenisTambah extends Request
 			'nama.required'=>'harus mengisi nama',
 			'id.required'=>'harus mengisi kode',
 			'id.unique'=>'kode tersebut sudah ada',
-			'id.digits'=>'kode maksimal 1 digit',
+			'id.digits'=>'kode harus 1 digit',
 		];
 	}
 }

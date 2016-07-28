@@ -87,6 +87,16 @@ Route::group(['prefix' => 'jenis'], function() {
 	Route::post('{id}/edit/proses','JenisController@prosesUbah');
 });
 
+Route::group(['prefix' => 'ukuran'], function() {
+	Route::get('/','UkuranController@lihat');
+	Route::get('add','UkuranController@tambah');
+	Route::get('{id}/delete','UkuranController@hapus');
+	Route::get('{id}/edit','UkuranController@ubah');
+	Route::post('add/proses','UkuranController@prosesTambah');
+	Route::post('{id}/delete/proses','UkuranController@prosesHapus');
+	Route::post('{id}/edit/proses','UkuranController@prosesUbah');
+});
+
 Route::group(['prefix' => 'user'], function() {
 	Route::get('/','UserController@lihat');
 	Route::get('add','UserController@tambah');
