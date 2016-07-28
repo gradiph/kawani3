@@ -34,7 +34,7 @@
                             <td>{{ $data->level }}</td>
                             <td>
                                 <button onclick="javascript: window.location.href = '{{ url('user/'.$data->id.'/password') }}'" title="Ubah Password" class="btn-warning img-rounded"><span class="glyphicon glyphicon-lock"></span></button>
-                                <button onclick="javascript: window.location.href = '{{ url('user/'.$data->id.'/edit') }}'" title="Ubah Data" class="btn-success img-rounded"><span class="glyphicon glyphicon-remove-circle"></span></button>
+                                <button onclick="javascript: window.location.href = '{{ url('user/'.$data->id.'/edit') }}'" title="Ubah Data" class="btn-success img-rounded"><span class="glyphicon glyphicon-edit"></span></button>
                             	<button onclick="javascript: window.location.href = '{{ url('user/'.$data->id.'/delete') }}'" title="Hapus Data" class="btn-danger img-rounded"><span class="glyphicon glyphicon-trash"></span></button>
                             </td>
                         </tr>

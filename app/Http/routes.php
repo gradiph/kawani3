@@ -67,6 +67,16 @@ Route::group(['prefix' => 'cabang'], function() {
 	Route::post('{id}/edit/proses','TokoController@prosesUbah');
 });
 
+Route::group(['prefix' => 'supplier'], function() {
+	Route::get('/','SupplierController@lihat');
+	Route::get('add','SupplierController@tambah');
+	Route::get('{id}/delete','SupplierController@hapus');
+	Route::get('{id}/edit','SupplierController@ubah');
+	Route::post('add/proses','SupplierController@prosesTambah');
+	Route::post('{id}/delete/proses','SupplierController@prosesHapus');
+	Route::post('{id}/edit/proses','SupplierController@prosesUbah');
+});
+
 Route::group(['prefix' => 'user'], function() {
 	Route::get('/','UserController@lihat');
 	Route::get('add','UserController@tambah');

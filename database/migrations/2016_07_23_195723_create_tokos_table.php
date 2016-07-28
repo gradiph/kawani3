@@ -16,7 +16,7 @@ class CreateTokosTable extends Migration
             $table->increments('id');
 			$table->string('nama');
 			$table->string('alamat');
-			$table->string('telepon',15);
+			$table->string('telepon',15)->nullable();
         });
     }
 

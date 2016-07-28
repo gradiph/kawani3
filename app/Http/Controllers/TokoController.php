@@ -4,6 +4,8 @@ namespace Kawani\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Kawani\Http\Requests;
+use Kawani\Http\Requests\ValidasiTokoTambah;
+use Kawani\Http\Requests\ValidasiTokoUbah;
 use DB;
 use Input;
 use Redirect;
@@ -24,29 +26,28 @@ class TokoController extends Controller
 	public function hapus($id) 
 	{
 		$data = Toko::find($id);
-		return view('toko.hapus')->with('tokos',$data);
+		return view('toko.hapus')->with('toko',$data);
 	}
     public function ubah($id) 
 	{
 		$data = Toko::find($id);
-		return view('toko.ubah')->with('tokos',$data);
+		return view('toko.ubah')->with('toko',$data);
 	}
     public function prosesTambah(ValidasiTokoTambah $validasi) 
 	{
 		Toko::create([
-			'username' => Input::get('username'),
 			'nama' => Input::get('nama'),
-			'password' => bcrypt(Input::get('password')),
-			'level' => Input::get('level'),
+			'alamat' => Input::get('alamat'),
+			'telepon' => Input::get('telepon'),
 		]);
 		return Redirect::to('cabang')->with('message','berhasil menambah data');
 	}
-	public function prosesUbah(ValidasiTokoEdit $validasi) 
+	public function prosesUbah(ValidasiTokoUbah $validasi) 
 	{
 		$data = Toko::find(Input::get('id'));
-		$data->username = Input::get('username');
 		$data->nama = Input::get('nama');
-		$data->level = Input::get('level');
+		$data->alamat = Input::get('alamat');
+		$data->telepon = Input::get('telepon');
 		$data->save();
 		return Redirect::to('cabang')->with('message','berhasil mengedit data');
 	}
