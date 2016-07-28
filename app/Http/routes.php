@@ -97,6 +97,16 @@ Route::group(['prefix' => 'ukuran'], function() {
 	Route::post('{id}/edit/proses','UkuranController@prosesUbah');
 });
 
+Route::group(['prefix' => 'warna'], function() {
+	Route::get('/','WarnaController@lihat');
+	Route::get('add','WarnaController@tambah');
+	Route::get('{id}/delete','WarnaController@hapus');
+	Route::get('{id}/edit','WarnaController@ubah');
+	Route::post('add/proses','WarnaController@prosesTambah');
+	Route::post('{id}/delete/proses','WarnaController@prosesHapus');
+	Route::post('{id}/edit/proses','WarnaController@prosesUbah');
+});
+
 Route::group(['prefix' => 'user'], function() {
 	Route::get('/','UserController@lihat');
 	Route::get('add','UserController@tambah');
