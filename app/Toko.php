@@ -14,7 +14,7 @@ class Toko extends Model
      * @var array
      */
     protected $fillable = [
-        'nama',
+        'nama', 'alamat', 'telepon',
     ];
 	
 	/**

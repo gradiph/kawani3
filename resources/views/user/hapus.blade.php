@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title') Ubah User | @stop
+@section('title') Hapus User | @stop
 @section('content')
 
 <div class="container">
@@ -7,26 +7,16 @@
         <div class="col-lg-4 col-lg-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Ubah Data
+                    Hapus Data
                 </div>
                 <div class="panel-body">
-                    {{ Form::open(['url' => url('user/'.$users->id.'/edit/proses')]) }}
+                    {{ Form::open(['url' => url('user/'.$users->id.'/delete/proses')]) }}
                     {{ Form::hidden('id', $users->id) }}
                     {{ Form::label('username','Username (untuk login)') }}
-                    @if($errors->has())
-                        <br />
-                        <span class="label label-danger">{{ $errors->first('username') }}</span>
-                        <p></p>
-                    @endif
-                    {{ Form::text('username', $users->username, ['autofocus' => 'autofocus', 'placeholder' => 'Username','class' => 'form-control']) }}
+                    {{ Form::text('username', $users->username, ['placeholder' => 'Username','class' => 'form-control','readonly' => 'readonly']) }}
                     <br />
                     {{ Form::label('nama','Nama') }}
-                    @if($errors->has())
-                        <br />
-                        <span class="label label-danger">{{ $errors->first('nama') }}</span>
-                        <p></p>
-                    @endif
-                    {{ Form::text('nama', $users->nama, ['placeholder' => 'Nama','class' => 'form-control']) }}
+                    {{ Form::text('nama', $users->nama, ['placeholder' => 'Nama','class' => 'form-control','readonly' => 'readonly']) }}
                     <br />
                     {{ Form::label('level','Level') }}
                     <?php
@@ -40,10 +30,10 @@
 						'Admin' => 'Admin',
 					];
 					?>
-                    {{ Form::select('level', $level, $users->level, ['class' => 'form-control']) }}
+                    {{ Form::select('level', $level, $users->level, ['class' => 'form-control','readonly' => 'readonly']) }}
                     <br />
                     <div class="col-lg-offset-2">
-                    	{{ Form::submit('Ubah Data', ['class' => 'btn btn-primary']) }} 
+                    	{{ Form::submit('Hapus Data', ['class' => 'btn btn-primary']) }} 
                         <button onclick="javascript:history.back()" class="btn btn-warning">Kembali</button>
                     </div>
                     {{ Form::close() }}

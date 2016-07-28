@@ -1,4 +1,4 @@
-<div class="bg-warning" style="padding:5px 5px; margin-top:20px">
+<div class="bg-warning" style="padding:5px 5px; font-size:small">
     <center>
         Kawani Sarana Petualang 
         <br />

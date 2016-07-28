@@ -20,49 +20,61 @@ Route::post('login/proses','MainController@prosesLogin');
 Route::group(['prefix' => 'barang'], function() {
 	Route::get('/','BarangController@lihat');
 	Route::get('add','BarangController@tambah');
-	Route::get('delete/{id}','BarangController@hapus');
-	Route::get('edit/{id}','BarangController@ubah');
+	Route::get('{id}/delete','BarangController@hapus');
+	Route::get('{id}/edit','BarangController@ubah');
 	Route::post('add/proses','BarangController@prosesTambah');
-	Route::post('delete/{id}/proses','BarangController@prosesHapus');
-	Route::post('edit/{id}/proses','BarangController@prosesUbah');
+	Route::post('{id}/delete/proses','BarangController@prosesHapus');
+	Route::post('{id}/edit/proses','BarangController@prosesUbah');
 });
 
 Route::group(['prefix' => 'diskon'], function() {
 	Route::get('/','DiskonController@lihat');
 	Route::get('add','DiskonController@tambah');
-	Route::get('delete/{id}','DiskonController@hapus');
-	Route::get('edit/{id}','DiskonController@ubah');
+	Route::get('{id}/delete','DiskonController@hapus');
+	Route::get('{id}/edit','DiskonController@ubah');
 	Route::post('add/proses','DiskonController@prosesTambah');
-	Route::post('delete/{id}/proses','DiskonController@prosesHapus');
-	Route::post('edit/{id}/proses','DiskonController@prosesUbah');
+	Route::post('{id}/delete/proses','DiskonController@prosesHapus');
+	Route::post('{id}/edit/proses','DiskonController@prosesUbah');
 });
 
 Route::group(['prefix' => 'kasir'], function() {
 	Route::get('/','KasirController@lihat');
 	Route::get('add','KasirController@tambah');
-	Route::get('delete/{id}','KasirController@hapus');
-	Route::get('edit/{id}','KasirController@ubah');
+	Route::get('{id}/delete','KasirController@hapus');
+	Route::get('{id}/edit','KasirController@ubah');
 	Route::post('add/proses','KasirController@prosesTambah');
-	Route::post('delete/{id}/proses','KasirController@prosesHapus');
-	Route::post('edit/{id}/proses','KasirController@prosesUbah');
+	Route::post('{id}/delete/proses','KasirController@prosesHapus');
+	Route::post('{id}/edit/proses','KasirController@prosesUbah');
 });
 
 Route::group(['prefix' => 'transaksi'], function() {
 	Route::get('/','TransaksiController@lihat');
 	Route::get('add','TransaksiController@tambah');
-	Route::get('delete/{id}','TransaksiController@hapus');
-	Route::get('edit/{id}','TransaksiController@ubah');
+	Route::get('{id}/delete','TransaksiController@hapus');
+	Route::get('{id}/edit','TransaksiController@ubah');
 	Route::post('add/proses','TransaksiController@prosesTambah');
-	Route::post('delete/{id}/proses','TransaksiController@prosesHapus');
-	Route::post('edit/{id}/proses','TransaksiController@prosesUbah');
+	Route::post('{id}/delete/proses','TransaksiController@prosesHapus');
+	Route::post('{id}/edit/proses','TransaksiController@prosesUbah');
+});
+
+Route::group(['prefix' => 'cabang'], function() {
+	Route::get('/','TokoController@lihat');
+	Route::get('add','TokoController@tambah');
+	Route::get('{id}/delete','TokoController@hapus');
+	Route::get('{id}/edit','TokoController@ubah');
+	Route::post('add/proses','TokoController@prosesTambah');
+	Route::post('{id}/delete/proses','TokoController@prosesHapus');
+	Route::post('{id}/edit/proses','TokoController@prosesUbah');
 });
 
 Route::group(['prefix' => 'user'], function() {
 	Route::get('/','UserController@lihat');
 	Route::get('add','UserController@tambah');
-	Route::get('delete/{id}','UserController@hapus');
-	Route::get('edit/{id}','UserController@ubah');
+	Route::get('{id}/delete','UserController@hapus');
+	Route::get('{id}/edit','UserController@ubah');
+	Route::get('{id}/password','UserController@ubahPass');
 	Route::post('add/proses','UserController@prosesTambah');
-	Route::post('delete/{id}/proses','UserController@prosesHapus');
-	Route::post('edit/{id}/proses','UserController@prosesUbah');
+	Route::post('{id}/delete/proses','UserController@prosesHapus');
+	Route::post('{id}/edit/proses','UserController@prosesUbah');
+	Route::post('{id}/password/proses','UserController@prosesUbahPass');
 });

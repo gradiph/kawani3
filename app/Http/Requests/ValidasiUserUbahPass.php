@@ -4,7 +4,7 @@ namespace Kawani\Http\Requests;
 
 use Kawani\Http\Requests\Request;
 
-class ValidasiUserEdit extends Request
+class ValidasiUserUbahPass extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,15 +24,13 @@ class ValidasiUserEdit extends Request
     public function rules()
     {
         return [
-            'username'=>'required',
-			'nama'=>'required',
+            'password'=>'required',
         ];
     }
 	public function messages()
 	{
 		return [
-			'username.required'=>'harus mengisi username',
-			'nama.required'=>'harus mengisi nama',
+			'password.required'=>'harus mengisi password',
 		];
 	}
 }
