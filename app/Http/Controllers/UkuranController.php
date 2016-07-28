@@ -15,8 +15,9 @@ class UkuranController extends Controller
 {
     public function lihat() 
 	{
-		$data = Ukuran::all();
-		return view('ukuran.lihat')->with('ukurans',$data);
+		$data = Ukuran::paginate(25);
+		$total = Ukuran::count();
+		return view('ukuran.lihat')->with('ukurans',$data)->with('total',$total);
 	}
 	public function tambah() 
 	{
