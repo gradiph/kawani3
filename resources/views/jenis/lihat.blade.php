@@ -38,6 +38,7 @@
                     @endforeach
                 </tbody>
             </table>
+            Total Data : {{ $total }}
         </div>
     </div>
 </div>

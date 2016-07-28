@@ -16,7 +16,8 @@ class JenisController extends Controller
     public function lihat() 
 	{
 		$data = Jenis::all();
-		return view('jenis.lihat')->with('jeniss',$data);
+		$total = Jenis::count();
+		return view('jenis.lihat')->with('jeniss',$data)->with('total',$total);
 	}
 	public function tambah() 
 	{
