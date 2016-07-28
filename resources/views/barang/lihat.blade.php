@@ -1,76 +1,56 @@
-@extends('template.t_index')
+@extends('layouts.app')
+@section('title') Daftar Barang | @stop
 @section('content')
 
-@if(Session::has('message'))
-    <span class="label label-success">{{ Session::get('message') }}</span>
-@endif
-<p></p>
-<div class="container-fluid">
-    <div class="table-responsive">
-        <table class="table table-hover table-bordered">
-            <thead>
-                <th>No</th>
-                <th>Kode</th>
-                <th>Kode Lama</th>
-                <th>Nama</th>
-                <th>Supplier</th>
-                <th>Jenis</th>
-                <th>Ukuran</th>
-                <th>Warna</th>
-                <th>Harga Jual</th>
-                <th>HPP</th>
-                <th>OT</th>
-                <th>CMH</th>
-                <th>DU</th>
-                <th>CSN</th>
-                <th>LKG</th>
-                <th>JTN</th>
-                <th>GDG</th>
-                <th>Aksi</th>
-            </thead>
-            <tbody>
-                <?php 
-                $no=1; 
-                use App\Classes\Pengkodean_barang;
-                $pengkodean_barang = new pengkodean_barang();
-                ?>
-                @foreach ($barang as $data)
-                    <?php
-                    $kode_supplier = 's' . substr($data->kode,0,3);
-                    $supplier = $pengkodean_barang->getSupplier($kode_supplier);
-                    $kode_jenis = 'j' . substr($data->kode,7,1);
-                    $jenis = $pengkodean_barang->getJenis($kode_jenis);
-                    $kode_ukuran = 'u' . substr($data->kode,8,2);
-                    $ukuran = $pengkodean_barang->getUkuran($kode_ukuran);
-                    $kode_warna = 'w' . substr($data->kode,10,2);
-                    $warna = $pengkodean_barang->getWarna($kode_warna);
-                    ?>
-                    <tr>
-                        <td>{{ $no++ }}</td>
-                        <td>{{ $data->kode }}</td>
-                        <td>{{ $data->kode_lama }}</td>
-                        <td>{{ $data->nama }}</td>
-                        <td>{{ $supplier }}</td>
-                        <td>{{ $jenis }}</td>
-                        <td>{{ $ukuran }}</td>
-                        <td>{{ $warna }}</td>
-                        <td>{{ number_format($data->harga_jual,0,',','.') }}</td>
-                        <td>{{ number_format($data->hpp,0,',','.') }}</td>
-                        <td>{{ number_format($data->stok_ot,0,',','.') }}</td>
-                        <td>{{ number_format($data->stok_cmh,0,',','.') }}</td>
-                        <td>{{ number_format($data->stok_du,0,',','.') }}</td>
-                        <td>{{ number_format($data->stok_csn,0,',','.') }}</td>
-                        <td>{{ number_format($data->stok_lkg,0,',','.') }}</td>
-                        <td>{{ number_format($data->stok_jtn,0,',','.') }}</td>
-                        <td>{{ number_format($data->stok_gdg,0,',','.') }}</td>
-                        <td><a href="edit/{{ $data->id }}">Edit</a> | <a href="delete/{{ $data->id }}">Hapus</a></td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-        <a href="{{ URL('barang/add') }}" class="btn btn-danger">Tambah Data</a>
-        <a href="{{ URL('') }}" class="btn btn-danger">Kembali ke Menu</a>
+<div class="container">
+    <div class="row">
+    	<div class="col-lg-12">
+            @if(Session::has('message'))
+                <div class="alert alert-success">
+                {{ Session::get('message') }}
+                <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+                </div>
+            @endif
+        	<h2>
+            	Pengolahan Data Barang
+            	<a href="{{ URL('barang/add') }}" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign"></span> Tambah Data</a>
+            </h2>
+            <hr />
+            <table class="table table-responsive table-bordered table-hover table-striped text-center">
+                <thead>
+                    <td><b>No</b></td>
+                    <td><b>Kode</b></td>
+                    <td><b>Nama</b></td>
+                    <td><b>Supplier</b></td>
+                    <td><b>Jenis</b></td>
+                    <td><b>Ukuran</b></td>
+                    <td><b>Warna</b></td>
+                    <td><b>Harga<br />Jual</b></td>
+                    <td><b>HPP</b></td>
+                    <td><b>Action</b></td>
+                </thead>
+                <tbody>
+                    <?php $no=1; ?>
+                    @foreach ($barangs as $barang)
+                        <tr>
+                            <td>{{ $no++ }}</td>
+                            <td>{{ $barang->id }}</td>
+                            <td>{{ $barang->nama }}</td>
+                            <td>{{ $barang->supplier->nama }}</td>
+                            <td>{{ $barang->jenis->nama }}</td>
+                            <td>{{ $barang->ukuran->nama }}</td>
+                            <td>{{ $barang->warna->nama }}</td>
+                            <td>{{ $barang->harga_jual }}</td>
+                            <td>{{ $barang->hpp }}</td>
+                            <td>
+                                <button onclick="javascript: window.location.href = '{{ url('barang/'.$barang->id.'/edit') }}'" title="Ubah Data" class="btn-success img-rounded"><span class="glyphicon glyphicon-edit"></span></button>
+                            	<button onclick="javascript: window.location.href = '{{ url('barang/'.$barang->id.'/delete') }}'" title="Hapus Data" class="btn-danger img-rounded"><span class="glyphicon glyphicon-trash"></span></button>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
-
 @stop

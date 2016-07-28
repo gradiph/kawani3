@@ -16,6 +16,7 @@
             	<a href="{{ URL('supplier/add') }}" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign"></span> Tambah Data</a>
             </h2>
             <hr />
+            <div class="pull-right">{{ $suppliers->render() }}</div>
             <table class="table table-responsive table-bordered table-hover table-striped text-center">
                 <thead>
                     <td><b>No</b></td>
@@ -38,6 +39,8 @@
                     @endforeach
                 </tbody>
             </table>
+            Total Data : {{ $total }}
+            <div class="pull-right">{{ $suppliers->render() }}</div>
         </div>
     </div>
 </div>

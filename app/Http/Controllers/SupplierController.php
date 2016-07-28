@@ -15,8 +15,9 @@ class SupplierController extends Controller
 {
     public function lihat() 
 	{
-		$data = Supplier::all();
-		return view('supplier.lihat')->with('suppliers',$data);
+		$data = Supplier::paginate(25);
+		$total = Supplier::count();
+		return view('supplier.lihat')->with('suppliers',$data)->with('total',$total);
 	}
 	public function tambah() 
 	{
