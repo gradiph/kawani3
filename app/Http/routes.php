@@ -118,3 +118,13 @@ Route::group(['prefix' => 'user'], function() {
 	Route::post('{id}/edit/proses','UserController@prosesUbah');
 	Route::post('{id}/password/proses','UserController@prosesUbahPass');
 });
+
+Route::group(['prefix' => 'stok'], function() {
+	Route::get('/','StokController@lihat');
+	Route::get('add','StokController@tambah');
+	Route::get('{id}/delete','StokController@hapus');
+	Route::get('{id}/edit','StokController@ubah');
+	Route::post('add/proses','StokController@prosesTambah');
+	Route::post('{id}/delete/proses','StokController@prosesHapus');
+	Route::post('{id}/edit/proses','StokController@prosesUbah');
+});

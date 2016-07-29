@@ -4,46 +4,37 @@ namespace Kawani\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Kawani\Http\Requests;
-use Kawani\Http\Requests\ValidasiBarangTambah;
-use Kawani\Http\Requests\ValidasiBarangEdit;
+use Kawani\Http\Requests\ValidasiStokTambah;
+use Kawani\Http\Requests\ValidasiStokEdit;
 use Auth;
 use Input;
 use Redirect;
+use Kawani\Stok;
+use Kawani\Toko;
 use Kawani\Barang;
-use Kawani\Supplier;
-use Kawani\Jenis;
-use Kawani\Ukuran;
-use Kawani\Warna;
 
-class BarangController extends Controller
+class StokController extends Controller
 {
-	public function lihat() 
+    public function lihat() 
 	{
-		$data = Barang::paginate(25);
-		$total = Barang::count();
-		return view('barang.lihat')->with('barangs',$data)->with('total',$total);
+		$data = Stok::orderBy('barang_id','asc')->orderBy('toko_id','asc')->get();
+		$tokos = Toko::orderBy('nama','asc')->get();
+		$total = Stok::count();
+		return view('stok.lihat')->with('stoks',$data)->with('total',$total)->with('tokos',$tokos);
 	}
 	public function tambah() 
 	{
-		$supplier = Supplier::orderBy('nama','asc')->get();
-		$jenis = Jenis::orderBy('nama','asc')->get();
-		$ukuran = Ukuran::all();
-		$warna = Warna::orderBy('nama','asc')->get();
-		return view('barang.tambah')
-				->with('suppliers',$supplier)
-				->with('jeniss',$jenis)
-				->with('ukurans',$ukuran)
-				->with('warnas',$warna);
+		return view('stok.tambah');
 	}
 	public function hapus($id) 
 	{
-		$data = Barang::find($id);
+		$data = Stok::find($id);
 		$supplier = Supplier::orderBy('nama','asc')->get();
 		$jenis = Jenis::orderBy('nama','asc')->get();
 		$ukuran = Ukuran::all();
 		$warna = Warna::orderBy('nama','asc')->get();
-		return view('barang.hapus')
-				->with('barang',$data)
+		return view('stok.hapus')
+				->with('stok',$data)
 				->with('suppliers',$supplier)
 				->with('jeniss',$jenis)
 				->with('ukurans',$ukuran)
@@ -51,21 +42,21 @@ class BarangController extends Controller
 	}
     public function ubah($id) 
 	{
-		$data = Barang::find($id);
+		$data = Stok::find($id);
 		$supplier = Supplier::orderBy('nama','asc')->get();
 		$jenis = Jenis::orderBy('nama','asc')->get();
 		$ukuran = Ukuran::all();
 		$warna = Warna::orderBy('nama','asc')->get();
-		return view('barang.ubah')
-				->with('barang',$data)
+		return view('stok.ubah')
+				->with('stok',$data)
 				->with('suppliers',$supplier)
 				->with('jeniss',$jenis)
 				->with('ukurans',$ukuran)
 				->with('warnas',$warna);
 	}
-    public function prosesTambah(ValidasiBarangTambah $validasi) 
+    public function prosesTambah(ValidasiStokTambah $validasi) 
 	{
-		Barang::create([
+		Stok::create([
 			'id' => Input::get('id'),
 			'nama' => Input::get('nama'),
 			'harga_jual' => Input::get('harga_jual'),
@@ -75,20 +66,20 @@ class BarangController extends Controller
 			'ukuran_id' => Input::get('ukuran_id'),
 			'warna_id' => Input::get('warna_id'),
 		]);
-		return Redirect::to('barang')->with('message','berhasil menambah data');
+		return Redirect::to('stok')->with('message','berhasil menambah data');
 	}
-	public function prosesUbah(ValidasiBarangEdit $validasi) 
+	public function prosesUbah(ValidasiStokEdit $validasi) 
 	{
-		$data = Barang::find(Input::get('id'));
+		$data = Stok::find(Input::get('id'));
 		$data->nama = Input::get('nama');
 		$data->harga_jual = Input::get('harga_jual');
 		$data->hpp = Input::get('hpp');
 		$data->save();
-		return Redirect::to('barang')->with('message','berhasil mengedit data');
+		return Redirect::to('stok')->with('message','berhasil mengedit data');
 	}
 	public function prosesHapus() 
 	{
-		Barang::destroy(Input::get('id'));
-		return Redirect::to('barang')->with('message','berhasil menghapus data');
+		Stok::destroy(Input::get('id'));
+		return Redirect::to('stok')->with('message','berhasil menghapus data');
 	}
 }

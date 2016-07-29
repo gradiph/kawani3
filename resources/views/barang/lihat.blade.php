@@ -16,6 +16,7 @@
             	<a href="{{ URL('barang/add') }}" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign"></span> Tambah Data</a>
             </h2>
             <hr />
+            <div class="pull-right">{{ $barangs->render() }}</div>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover table-striped text-center">
                     <thead>
@@ -41,8 +42,8 @@
                                 <td>{{ $barang->jenis->nama }}</td>
                                 <td>{{ $barang->ukuran->nama }}</td>
                                 <td>{{ $barang->warna->nama }}</td>
-                                <td>{{ $barang->harga_jual }}</td>
-                                <td>{{ $barang->hpp }}</td>
+                                <td>{{ number_format($barang->harga_jual,0,',','.') }}</td>
+                                <td>{{ number_format($barang->hpp,0,',','.') }}</td>
                                 <td>
                                     <button onclick="javascript: window.location.href = '{{ url('barang/'.$barang->id.'/edit') }}'" title="Ubah Data" class="btn-success img-rounded"><span class="glyphicon glyphicon-edit"></span></button>
                                     <button onclick="javascript: window.location.href = '{{ url('barang/'.$barang->id.'/delete') }}'" title="Hapus Data" class="btn-danger img-rounded"><span class="glyphicon glyphicon-trash"></span></button>
@@ -52,6 +53,8 @@
                     </tbody>
                 </table>
             </div>
+            Total Data : {{ $total }}
+            <div class="pull-right">{{ $barangs->render() }}</div>
         </div>
     </div>
 </div>
