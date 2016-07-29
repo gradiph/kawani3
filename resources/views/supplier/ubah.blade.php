@@ -10,7 +10,7 @@
                     Ubah Supplier
                 </div>
                 <div class="panel-body">
-                    {{ Form::open(['url' => url('supplier/'.$supplier->id.'/edit/proses')]) }}
+                    {{ Form::open(['url' => url('supplier/'.$supplier->id.'/edit/proses'), 'role' => 'form']) }}
                     {{ Form::label('id','Kode Supplier') }}
                     @if($errors->has())
                         <br />

@@ -10,7 +10,7 @@
                     Tambah Supplier
                 </div>
                 <div class="panel-body">
-                    {{ Form::open(['url' => url('supplier/add/proses')]) }}
+                    {{ Form::open(['url' => url('supplier/add/proses'), 'role' => 'form']) }}
                     {{ Form::label('id','Kode Supplier') }}
                     @if($errors->has())
                         <br />

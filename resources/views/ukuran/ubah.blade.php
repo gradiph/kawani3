@@ -10,7 +10,7 @@
                     Ubah Ukuran
                 </div>
                 <div class="panel-body">
-                    {{ Form::open(['url' => url('ukuran/'.$ukuran->id.'/edit/proses')]) }}
+                    {{ Form::open(['url' => url('ukuran/'.$ukuran->id.'/edit/proses'), 'role' => 'form']) }}
                     {{ Form::label('id','Kode Ukuran') }}
                     @if($errors->has())
                         <br />

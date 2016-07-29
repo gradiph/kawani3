@@ -10,7 +10,7 @@
                     Hapus Warna
                 </div>
                 <div class="panel-body">
-                    {{ Form::open(['url' => url('warna/'.$warna->id.'/delete/proses')]) }}
+                    {{ Form::open(['url' => url('warna/'.$warna->id.'/delete/proses'), 'role' => 'form']) }}
                     {{ Form::label('id','Kode Warna') }}
                     @if($errors->has())
                         <br />

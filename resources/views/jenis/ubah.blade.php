@@ -10,7 +10,7 @@
                     Ubah Jenis
                 </div>
                 <div class="panel-body">
-                    {{ Form::open(['url' => url('jenis/'.$jenis->id.'/edit/proses')]) }}
+                    {{ Form::open(['url' => url('jenis/'.$jenis->id.'/edit/proses'), 'role' => 'form']) }}
                     {{ Form::label('id','Kode Jenis') }}
                     @if($errors->has())
                         <br />

@@ -10,7 +10,7 @@
                     Hapus Supplier
                 </div>
                 <div class="panel-body">
-                    {{ Form::open(['url' => url('supplier/'.$supplier->id.'/delete/proses')]) }}
+                    {{ Form::open(['url' => url('supplier/'.$supplier->id.'/delete/proses'), 'role' => 'form']) }}
                     {{ Form::label('id','Kode Supplier') }}
                     @if($errors->has())
                         <br />

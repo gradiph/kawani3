@@ -10,7 +10,7 @@
                     Tambah Warna
                 </div>
                 <div class="panel-body">
-                    {{ Form::open(['url' => url('warna/add/proses')]) }}
+                    {{ Form::open(['url' => url('warna/add/proses'), 'role' => 'form']) }}
                     {{ Form::label('id','Kode Warna') }}
                     @if($errors->has())
                         <br />

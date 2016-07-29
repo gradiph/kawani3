@@ -10,7 +10,7 @@
                     Ubah Cabang
                 </div>
                 <div class="panel-body">
-                    {{ Form::open(['url' => url('cabang/'.$toko->id.'/edit/proses')]) }}
+                    {{ Form::open(['url' => url('cabang/'.$toko->id.'/edit/proses'), 'role' => 'form']) }}
                     {{ Form::hidden('id', $toko->id) }}
                     {{ Form::label('nama','Nama Cabang') }}
                     @if($errors->has())

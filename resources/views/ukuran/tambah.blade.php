@@ -10,7 +10,7 @@
                     Tambah Ukuran
                 </div>
                 <div class="panel-body">
-                    {{ Form::open(['url' => url('ukuran/add/proses')]) }}
+                    {{ Form::open(['url' => url('ukuran/add/proses'), 'role' => 'form']) }}
                     {{ Form::label('id','Kode Ukuran') }}
                     @if($errors->has())
                         <br />

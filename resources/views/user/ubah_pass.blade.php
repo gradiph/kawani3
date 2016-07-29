@@ -10,7 +10,7 @@
                     Ubah Password
                 </div>
                 <div class="panel-body">
-                    {{ Form::open(['url' => url('user/'.$users->id.'/password/proses')]) }}
+                    {{ Form::open(['url' => url('user/'.$users->id.'/password/proses'), 'role' => 'form']) }}
                     {{ Form::hidden('id', $users->id) }}
                     {{ Form::label('password','Password') }}
                     @if($errors->has())

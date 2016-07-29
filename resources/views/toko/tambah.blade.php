@@ -10,7 +10,7 @@
                     Tambah Cabang
                 </div>
                 <div class="panel-body">
-                    {{ Form::open(['url' => url('cabang/add/proses')]) }}
+                    {{ Form::open(['url' => url('cabang/add/proses'), 'role' => 'form']) }}
                     {{ Form::label('nama','Nama Cabang') }}
                     @if($errors->has())
                         <br />

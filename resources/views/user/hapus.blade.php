@@ -10,7 +10,7 @@
                     Hapus Data
                 </div>
                 <div class="panel-body">
-                    {{ Form::open(['url' => url('user/'.$users->id.'/delete/proses')]) }}
+                    {{ Form::open(['url' => url('user/'.$users->id.'/delete/proses'), 'role' => 'form']) }}
                     {{ Form::hidden('id', $users->id) }}
                     {{ Form::label('username','Username (untuk login)') }}
                     {{ Form::text('username', $users->username, ['placeholder' => 'Username','class' => 'form-control','readonly' => 'readonly']) }}

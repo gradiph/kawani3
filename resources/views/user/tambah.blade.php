@@ -10,7 +10,7 @@
                     Tambah Data
                 </div>
                 <div class="panel-body">
-                    {{ Form::open(['url' => url('user/add/proses')]) }}
+                    {{ Form::open(['url' => url('user/add/proses'), 'role' => 'form']) }}
                     {{ Form::label('username','Username (untuk login)') }}
                     @if($errors->has())
                         <br />

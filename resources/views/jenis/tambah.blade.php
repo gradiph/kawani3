@@ -10,7 +10,7 @@
                     Tambah Jenis
                 </div>
                 <div class="panel-body">
-                    {{ Form::open(['url' => url('jenis/add/proses')]) }}
+                    {{ Form::open(['url' => url('jenis/add/proses'), 'role' => 'form']) }}
                     {{ Form::label('id','Kode Jenis') }}
                     @if($errors->has())
                         <br />

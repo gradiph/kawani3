@@ -10,7 +10,7 @@
                     Ubah Warna
                 </div>
                 <div class="panel-body">
-                    {{ Form::open(['url' => url('warna/'.$warna->id.'/edit/proses')]) }}
+                    {{ Form::open(['url' => url('warna/'.$warna->id.'/edit/proses'), 'role' => 'form']) }}
                     {{ Form::label('id','Kode Warna') }}
                     @if($errors->has())
                         <br />

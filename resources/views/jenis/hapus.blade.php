@@ -10,7 +10,7 @@
                     Hapus Jenis
                 </div>
                 <div class="panel-body">
-                    {{ Form::open(['url' => url('jenis/'.$jenis->id.'/delete/proses')]) }}
+                    {{ Form::open(['url' => url('jenis/'.$jenis->id.'/delete/proses'), 'role' => 'form']) }}
                     {{ Form::label('id','Kode Jenis') }}
                     @if($errors->has())
                         <br />

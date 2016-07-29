@@ -10,7 +10,7 @@
                     Ubah Data
                 </div>
                 <div class="panel-body">
-                    {{ Form::open(['url' => url('user/'.$users->id.'/edit/proses')]) }}
+                    {{ Form::open(['url' => url('user/'.$users->id.'/edit/proses'), 'role' => 'form']) }}
                     {{ Form::hidden('id', $users->id) }}
                     {{ Form::label('username','Username (untuk login)') }}
                     @if($errors->has())
