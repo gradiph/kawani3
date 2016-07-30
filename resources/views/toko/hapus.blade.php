@@ -36,7 +36,7 @@
                     @endif
                     {{ Form::text('telepon', $toko->telepon, ['placeholder' => 'Telepon','class' => 'form-control','readonly'=>'readonly']) }}
                     <br />
-                    <div class="col-lg-offset-2">
+                    <div class="text-center">
                     	{{ Form::submit('Hapus Data', ['class' => 'btn btn-primary']) }} 
                         <button onclick="javascript:history.back()" class="btn btn-warning">Kembali</button>
                     </div>
