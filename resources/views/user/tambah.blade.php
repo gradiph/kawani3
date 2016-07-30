@@ -49,7 +49,7 @@
 					?>
                     {{ Form::select('level', $level, 'Kasir', ['class' => 'form-control']) }}
                     <br />
-                    <div class="col-lg-offset-2">
+                    <div class="text-center">
                     	{{ Form::submit('Tambah Data', ['class' => 'btn btn-primary']) }} 
                         <button onclick="javascript:history.back()" class="btn btn-warning">Kembali</button>
                     </div>
