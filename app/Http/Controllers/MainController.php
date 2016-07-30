@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Kawani\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use Kawani\Http\Requests;
+use Kawani\Http\Controllers\Controller;
 use DB;
 use Input;
 use Redirect;
 use Auth;
-use App\Http\Requests\validasiLogin;
+use Kawani\Http\Requests\validasiLogin;
 
 class MainController extends Controller
 {
@@ -26,7 +26,7 @@ class MainController extends Controller
 	public function home() {
 		if (Auth::user()) {
 			if (Auth::user()->level=="Admin") {
-				return view('home');
+				return view('home.admin');
 			}
 		}
 		else {
@@ -40,7 +40,7 @@ class MainController extends Controller
 			}
 		}
 		else {
-			return view('login');
+			return view('home.login');
 		}
 	}
 	public function prosesLogin(validasilogin $validasi) {
