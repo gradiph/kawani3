@@ -20,14 +20,15 @@
                     <div class="col-lg-6">
                         <div class="panel panel-default table-responsive" style="height:300px;">
                             <div class="panel-heading">
-                            	{{ $toko->nama }}
-            					<a href="{{ URL('stok/add') }}" class="btn btn-xs btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign"></span> Tambah Data</a>
+                                <big><strong>{{ $toko->nama }}</strong></big>
+                                |
+                                <span id="qty{{ $toko->id }}"></span>
+            					<a href="{{ URL('stok/toko/'.$toko->id.'/add') }}" class="btn btn-xs btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign"></span> Tambah Data</a>
                             </div>
                             <div class="panel-body">
                                 <table class="table table-bordered table-hover table-striped text-center">
                                     <thead>
                                         <td><b>No</b></td>
-                                        <td><b>Toko</b></td>
                                         <td><b>Nama Barang</b></td>
                                         <td><b>Qty</b></td>
                                         <td><b>Action</b></td>
@@ -38,7 +39,6 @@
                                         	@if($stok->toko->id == $toko->id)
                                                 <tr>
                                                     <td>{{ ++$no }}</td>
-                                                    <td>{{ $stok->toko->nama }}</td>
                                                     <td>{{ $stok->barang->nama }}</td>
                                                     <td>{{ $stok->qty }}</td>
                                                     <td>
@@ -48,6 +48,9 @@
                                                 </tr>
                                             @endif
                                         @endforeach
+                                        <script>
+                                            $("#qty{{ $toko->id }}").html("Jumlah Barang : {{ $no }}");
+                                        </script>
                                     </tbody>
                                 </table>
                             </div>

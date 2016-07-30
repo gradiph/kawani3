@@ -14,37 +14,37 @@ class StoksTableSeeder extends Seeder
     {
 		Stok::create([
 			'toko_id' => '1',
-			'barang_id' => '208150510506',
+			'barang_id' => '208150510505',
 			'qty' => '2',
 		]);
         Stok::create([
 			'toko_id' => '2',
-			'barang_id' => '208150510506',
+			'barang_id' => '208150510505',
 			'qty' => '5',
 		]);
 		Stok::create([
 			'toko_id' => '3',
-			'barang_id' => '208150510506',
+			'barang_id' => '208150510505',
 			'qty' => '0',
 		]);
         Stok::create([
 			'toko_id' => '4',
-			'barang_id' => '208150510506',
+			'barang_id' => '208150510505',
 			'qty' => '8',
 		]);
         Stok::create([
 			'toko_id' => '5',
-			'barang_id' => '208150510506',
+			'barang_id' => '208150510505',
 			'qty' => '1',
 		]);
         Stok::create([
 			'toko_id' => '6',
-			'barang_id' => '208150510506',
+			'barang_id' => '208150510505',
 			'qty' => '22',
 		]);
         Stok::create([
 			'toko_id' => '7',
-			'barang_id' => '208150510506',
+			'barang_id' => '208150510505',
 			'qty' => '11',
 		]);
         Stok::create([

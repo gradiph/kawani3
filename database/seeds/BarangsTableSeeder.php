@@ -13,7 +13,7 @@ class BarangsTableSeeder extends Seeder
     public function run()
     {
         Barang::create([
-			'id' => '208150510506',
+			'id' => '208150510505',
 			'nama' => 'Day Pack Deuter 50L',
 			'harga_jual' => '250000',
 			'hpp' => '180000',

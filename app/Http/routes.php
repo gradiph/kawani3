@@ -121,10 +121,12 @@ Route::group(['prefix' => 'user'], function() {
 
 Route::group(['prefix' => 'stok'], function() {
 	Route::get('/','StokController@lihat');
-	Route::get('add','StokController@tambah');
+	Route::get('toko/{id}/add','StokController@tambah');
 	Route::get('{id}/delete','StokController@hapus');
 	Route::get('{id}/edit','StokController@ubah');
-	Route::post('add/proses','StokController@prosesTambah');
+    Route::get('ambilListBarang/supplier/{supplier_id}/jenis/{jenis_id}/ukuran/{ukuran_id}/warna/{warna_id}','StokController@list');
+    Route::get('ambilDataBarang/{id}','StokController@data');
+	Route::post('toko/{id}/add/proses','StokController@prosesTambah');
 	Route::post('{id}/delete/proses','StokController@prosesHapus');
 	Route::post('{id}/edit/proses','StokController@prosesUbah');
 });
