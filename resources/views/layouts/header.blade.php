@@ -34,7 +34,8 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-            	<li><a href="{{ URL('keluar') }}">Keluar</a></li>
+                <li><a href=""><span class="glyphicon glyphicon-user"></span> {{ Auth::user() ? Auth::user()->username : '' }}</a></li>
+            	<li><a href="{{ URL('logout') }}">Keluar</a></li>
             </ul>
         </div>
     </div>
