@@ -44,6 +44,8 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'kasir' => \Kawani\Http\Middleware\AuthKasir::class,
+        'kasir-gudang-staf' => \Kawani\Http\Middleware\AuthKasirGudangStaf::class,
         'auth' => \Kawani\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
