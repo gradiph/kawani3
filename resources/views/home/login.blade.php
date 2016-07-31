@@ -6,6 +6,9 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <span class="glyphicon glyphicon-user"></span> Login
+            @if(Session::has('message'))
+                <span class="label label-danger">{{ Session::get('message') }}</span>
+            @endif
         </div>
         <div class="panel-body">
             {{ Form::open(['url' => url('login/proses'), 'role' => 'form']) }}
@@ -24,22 +27,17 @@
                     {{ Form::password('password',['class' => 'form-control']) }}
                 </div>
                 <div class="form-group">
-                    <div class="col-lg-offset-3 col-lg-9">
+                    <div class="col-lg-offset-1 col-lg-5">
                         <div class="checkbox">
                             <label>
                                 {{ Form::checkbox('remember') }} Remember Me
                             </label>
-<!--
-                            <label>
-                            <input type="checkbox"> Remember me
-                            </label>
--->
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-lg-offset-3 col-lg-9">
-                        {{ Form::submit('Login',['class' => 'btn btn-primary']) }}
+                    <div class="col-lg-offset-1 col-lg-4">
+                        {{ Form::submit('Login',['class' => 'btn btn-primary btn-block']) }}
                     </div>
                 </div>
             {{ Form::close() }}
