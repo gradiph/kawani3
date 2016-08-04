@@ -13,21 +13,11 @@ use Kawani\Http\Requests\validasiLogin;
 
 class MainController extends Controller
 {
-	public function index() {
-		if (Auth::user()) {
-			if (Auth::user()->level=="Admin") {
-				return Redirect::to('home');
-			}
-		}
-		else {
-			return Redirect::to('login');
-		}
-	}
 	public function home() {
 		if (Auth::user()) {
-//			if (Auth::user()->level=="Admin") {
-//				return view('home.admin');
-//			}
+			if (Auth::user()->level=="Admin") {
+				return view('home.admin');
+			}
             return view('home.admin');
 		}
 		else {

@@ -6,7 +6,7 @@ use Closure;
 use Auth;
 use Redirect;
 
-class AuthGudangStaf
+class AuthHrdKeuanganDirektur
 {
     /**
      * Handle an incoming request.

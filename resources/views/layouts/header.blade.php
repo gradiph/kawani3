@@ -15,7 +15,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
         	<ul class="nav navbar-nav">
-            	<li><a href="{{ URL('/') }}">Home</a></li>
+            	<li><a href="{{ URL('home') }}">Home</a></li>
                 <li><a href="{{ URL('diskon') }}">Diskon</a></li>
                 <li><a href="{{ URL('kasir') }}">Kasir</a></li>
                 <li><a href="{{ URL('stok') }}">Stok</a></li>

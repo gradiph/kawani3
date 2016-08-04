@@ -3,6 +3,8 @@
 namespace Kawani\Http\Middleware;
 
 use Closure;
+use Auth;
+use Redirect;
 
 class AuthKasirGudangStaf
 {

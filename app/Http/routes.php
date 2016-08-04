@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'MainController@index');
+Route::get('/', 'MainController@home');
 Route::get('home', 'MainController@home');
 Route::get('login', 'MainController@login');
 Route::get('logout','MainController@logout');
