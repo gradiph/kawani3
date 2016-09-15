@@ -1,45 +1,55 @@
-@extends('template.t_index')
+@extends('layouts.app')
 @section('content')
 
-@if(Session::has('message'))
-    <span class="label label-success">{{ Session::get('message') }}</span>
-@endif
-<p></p>
-<div class="table-responsive">
-    <table class="table table-bordered">
-        <thead>
-            <th>No</th>
-            <th>Tanggal</th>
-            <th>Toko</th>
-            <th>Jenis Pembayaran</th>
-            <th>Total Bayar</th>
-            <th>Total HPP</th>
-            <th>Total Diskon</th>
-            <th>Total Piece</th>
-            <th>Username</th>
-            <th>Aksi</th>
-        </thead>
-        <tbody>
-            <?php 
-			$no=1; 
-			?>
-            @foreach ($transaksi as $data)
-            	<tr>
-                    <td>{{ $no++ }}</td>
-                    <td>{{ $data->tgl }}</td>
-                    <td>{{ $data->toko }}</td>
-                    <td>{{ $data->jenis_bayar }}</td>
-                    <td>{{ number_format($data->total_bayar,0,',','.') }}</td>
-                    <td>{{ number_format($data->total_hpp,0,',','.') }}</td>
-                    <td>{{ number_format($data->total_diskon,0,',','.') }}</td>
-                    <td>{{ number_format($data->total_pieces,0,',','.') }}</td>
-                    <td>{{ $data->username }}</td>
-                    <td><a href="transaksi/id/{{ $data->id }}">Lihat</a></td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-    <a href="{{ URL('transaksi/add') }}" class="btn btn-danger"> Tambah Transaksi </a> <a href="{{ URL('') }}" class="btn btn-danger"> Kembali ke Menu </a>
+<div class="container">
+    @if(Session::has('message'))
+        <div class="alert alert-success">
+        {{ Session::get('message') }}
+        <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+        </div>
+    @endif
+    <h2>
+        Pengolahan Data Supplier
+        <a href="{{ URL('transaksi/add') }}" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign"></span> Tambah Data</a>
+    </h2>
+    <hr />
+    <div class="pull-right">{{ $transaksis->render() }}</div>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <th>No</th>
+                <th>Waktu</th>
+                <th>Toko</th>
+                <th>Jenis Pembayaran</th>
+                <th>Total Bayar</th>
+                <th>Total HPP</th>
+                <th>Total Diskon</th>
+                <th>Total Piece</th>
+                <th>Username</th>
+                <th>Aksi</th>
+            </thead>
+            <tbody>
+                <?php
+                $no=1;
+                ?>
+                @foreach ($transaksis as $transaksi)
+                    <tr>
+                        <td>{{ $no++ }}</td>
+                        <td>{{ $transaksi->created_at }}</td>
+                        <td>{{ $transaksi->toko->nama }}</td>
+                        <td>{{ $transaksi->jenis_bayar }}</td>
+                        <td>{{ number_format($transaksi->total_jual,0,',','.') }}</td>
+                        <td>{{ number_format($transaksi->total_hpp,0,',','.') }}</td>
+                        <td>{{ number_format($transaksi->total_diskon,0,',','.') }}</td>
+                        <td>{{ number_format($transaksi->total_qty,0,',','.') }}</td>
+                        <td>{{ $transaksi->user->nama }}</td>
+                        <td><a href="transaksi/id/{{ $transaksi->id }}">Lihat</a></td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+        <a href="{{ URL('transaksi/add') }}" class="btn btn-danger"> Tambah Transaksi </a> <a href="{{ URL('') }}" class="btn btn-danger"> Kembali ke Menu </a>
+    </div>
 </div>
 
 @stop

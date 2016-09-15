@@ -1,7 +1,9 @@
 @extends('layouts.app')
 @section('title') Daftar Barang | @stop
 @section('content')
+<script>
 
+</script>
 <div class="container">
     <div class="row">
     	<div class="col-lg-12">

@@ -1,34 +1,34 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Kawani\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use KAwani\Http\Requests;
+use KAwani\Http\Requests\validasiTambahTransaksi;
+use Kawani\Http\Controllers\Controller;
 use DB;
 use Input;
 use Redirect;
 use Auth;
-use App\Http\Requests\validasiTambahTransaksi;
+use Kawani\Transaksi;
 
 class TransaksiController extends Controller
 {
     public function editData($id) {
-		$data = DB::table('transaksi')->where('id','=',$id)->first();
-		return view('transaksi_edit')->with('transaksi',$data);
+		$transaksi = Transaksi::find($id);
+		return view('transaksi.edit')->with('transaksi',$transaksi);
 	}
 	public function hapusData($id) {
-		DB::table('transaksi')->where('id','=',$id)->delete();
-		return Redirect::to('transaksi')->with('message','berhasil menghapus data');
+		$transaksi = Transaksi::find($id);
+		return view('transaksi.hapus')->with('transaksi',$transaksi);
 	}
 	public function konfirmData() {
 		return view('transaksi_tambah');
 	}
-	public function lihatData() {
-		$data = DB::table('transaksi')
-					->join('users', 'users.id','=','transaksi.id_users')
-					->get();
-		return view('transaksi_read')->with('transaksi',$data);
+	public function lihat() {
+		$transaksis = Transaksi::paginate(25);
+        $total = Transaksi::count();
+		return view('transaksi.lihat')->with('transaksis',$transaksis)->with('total',$total);
 	}
 	public function lihatDetailData($id) {
 		$transaksi = DB::table('transaksi')
